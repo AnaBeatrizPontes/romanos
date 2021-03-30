@@ -1,3 +1,4 @@
+//  Copyright [2021] <Ana Beatriz>
 #define CATCH_CONFIG_MAIN
 
 #include "../include/romano.hpp"
@@ -44,7 +45,7 @@ TEST_CASE("Se algum é numero", "[convert_number]") {
     REQUIRE(convert_number("L98") == -1);
 };
 
-// TEST_CASE("Se tem dois numeros menores na frente de um maior", "[convert_numeber]") {
+// TEST_CASE("Dois numeros menores na frente", "[convert_numeber]") {
 //     REQUIRE(convert_number("IIV") == -1);
 //     REQUIRE(convert_number("XXL") == -1);
 //     REQUIRE(convert_number("XXC") == -1);
@@ -52,8 +53,10 @@ TEST_CASE("Se algum é numero", "[convert_number]") {
 //     REQUIRE(convert_number("XDM") == -1);
 // };
 
-// TEST_CASE("Se tem um meno na frente e depois de um maior", "[convert_number]") {
+// TEST_CASE("Um menor na frente e depois de um maior", "[convert_number]") {
 //         REQUIRE(convert_number("IXI") == -1);
 // };
+
+//  VERIFICAR QUE SÓ PODE ATÉ 3000
 
 

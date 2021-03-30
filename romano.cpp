@@ -13,27 +13,20 @@ int convert_number(std::string STRING_ROMANA_) {
     int SUM = 0;
     int NUM = 0;
     char LETTER = ' ';
-    int VAL = 0;    
+    int VAL = 0;
 
-    for (AUX = 0; AUX <= STRING_ROMANA_.length(); AUX++) {
-        if ( islower(STRING_ROMANA_[AUX]) )
-        {
+    for (AUX = 0; AUX < STRING_ROMANA_.length(); AUX++) {
+        if ( islower(STRING_ROMANA_[AUX]) ) {
             return -1;
-        }
-        else if ( isdigit(STRING_ROMANA_[AUX]) )
-        {
+        } else if ( isdigit(STRING_ROMANA_[AUX]) ) {
             return -1;
-        }
-        else if ( STRING_ROMANA_.length() < 2 ) {
-            for (VAL = 0; VAL <= 7; VAL++)
-            {
-                if ( STRING_ROMANA_[AUX] == ROMAN_STRING_[VAL] )
-                {
+        } else if ( STRING_ROMANA_.length() < 2 ) {
+            for (VAL = 0; VAL <= 7; VAL++) {
+                if ( STRING_ROMANA_[AUX] == ROMAN_STRING_[VAL] ) {
                     return ARABIC_NUMBER_[VAL];
                 }
             }
-        }
-        else {
+        } else {
             LETTER = STRING_ROMANA_[AUX];
             for ( CONT = 0; CONT <= 7; CONT++ ) {
                 if ( LETTER == ROMAN_STRING_[CONT] ) {

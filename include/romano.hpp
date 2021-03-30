@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <cctype>
 #include "catch.hpp"
 
 int convert_number(std::string);

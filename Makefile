@@ -24,10 +24,10 @@ exec:
 	./romano 
 
 cppcheck:
-	cppcheck $(IDIR)/romano.hpp romano.cpp teste_romano.cpp --enable=warning
+	cppcheck $(IDIR)/romano.hpp romano.cpp testa_romano.cpp --enable=warning
 
 valgrind:
 	valgrind --leak-check=full ./romano
 
 cpplint:
-	cpplint $(IDIR)/romano.hpp romano.cpp teste_romano.cpp
+	cpplint $(IDIR)/romano.hpp romano.cpp testa_romano.cpp
