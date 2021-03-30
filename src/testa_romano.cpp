@@ -45,6 +45,23 @@ TEST_CASE("Se algum é numero", "[convert_number]") {
     REQUIRE(convert_number("L98") == -1);
 };
 
+TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
+    REQUIRE(convert_number("MMMM") == -1);
+    REQUIRE(convert_number("MMMD") == -1);
+    REQUIRE(convert_number("MMMMDCCC") == -1);
+    REQUIRE(convert_number("MMMI") == -1);
+    REQUIRE(convert_number("MMMMCMXCV") == -1);
+};
+
+// TEST_CASE("Se o tamanho da string é maior que 30", "[convert_number]") {
+//     REQUIRE(convert_number("MMCCCXXIII") == -1);
+//     REQUIRE(convert_number("MMMMCDXLIV") == -1);
+//     REQUIRE(convert_number("MMMCCCXXXIII") == -1);
+//     REQUIRE(convert_number("MMCCCXLVIII") == -1);
+//     REQUIRE(convert_number("MMMMCCCLXIX") == -1);
+// };
+
+
 // TEST_CASE("Dois numeros menores na frente", "[convert_numeber]") {
 //     REQUIRE(convert_number("IIV") == -1);
 //     REQUIRE(convert_number("XXL") == -1);
@@ -57,6 +74,6 @@ TEST_CASE("Se algum é numero", "[convert_number]") {
 //         REQUIRE(convert_number("IXI") == -1);
 // };
 
-//  VERIFICAR QUE SÓ PODE ATÉ 3000
+
 
 

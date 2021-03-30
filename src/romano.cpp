@@ -20,6 +20,8 @@ int convert_number(std::string STRING_ROMANA_) {
             return -1;
         } else if ( isdigit(STRING_ROMANA_[AUX]) ) {
             return -1;
+        } else if ( STRING_ROMANA_.length() > 30 ) {
+            return -1;
         } else if ( STRING_ROMANA_.length() < 2 ) {
             for (VAL = 0; VAL <= 7; VAL++) {
                 if ( STRING_ROMANA_[AUX] == ROMAN_STRING_[VAL] ) {
@@ -39,5 +41,9 @@ int convert_number(std::string STRING_ROMANA_) {
             }
         }
     }
-    return SUM;
+    if (SUM > 3000) {
+        return -1;
+    } else {
+        return SUM;
+    }
 }
