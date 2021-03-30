@@ -27,12 +27,9 @@ int convert_number(std::string STRING_ROMANA_) {
         else if ( STRING_ROMANA_.length() < 2 ) {
             for (VAL = 0; VAL <= 7; VAL++)
             {
-                if ( STRING_ROMANA_.at(AUX) == ROMAN_STRING_[VAL] )
+                if ( STRING_ROMANA_[AUX] == ROMAN_STRING_[VAL] )
                 {
                     return ARABIC_NUMBER_[VAL];
-                }
-                else {
-                    AUX++;
                 }
             }
         }
