@@ -25,13 +25,13 @@ TEST_CASE("Se tem um número menor na frente do maior", "[convert_number]") {
     REQUIRE(convert_number("IX") == 9);
 };
 
-// TEST_CASE("Se é letra minuscula", "[convert_number]") {
-//     REQUIRE(convert_number("jjj") == -1);
-//     REQUIRE(convert_number("aaaaaa") == -1);
-//     REQUIRE(convert_number("balinha") == -1);
-//     REQUIRE(convert_number("aKam") == -1);
-//     REQUIRE(convert_number("xxL") == -1);
-// };
+TEST_CASE("Se é letra minuscula", "[convert_number]") {
+    REQUIRE(convert_number("jjj") == -1);
+    REQUIRE(convert_number("aaaaaa") == -1);
+    REQUIRE(convert_number("balinha") == -1);
+    REQUIRE(convert_number("aKam") == -1);
+    REQUIRE(convert_number("xxL") == -1);
+};
 
 // TEST_CASE("Se todas as letras estão dentro da sintaxe romana", "[convert_number]") {
 //     REQUIRE(convert_number("jjj") == -1);
