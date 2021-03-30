@@ -1,5 +1,5 @@
-IDIR =./
-CC=gcc
+IDIR =./include
+CC=g++
 CFLAGS=-I$(IDIR) 
 
 ODIR=obj
@@ -11,12 +11,11 @@ _OBJ = romano.o testa_romano.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 romano: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
-
 
 clean:
 	rm -f $(ODIR)/*.o 
@@ -25,10 +24,10 @@ exec:
 	./romano 
 
 cppcheck:
-	cppcheck romano.hpp romano.cpp teste_romano.cpp --enable=warning
+	cppcheck $(IDIR)/romano.hpp romano.cpp teste_romano.cpp --enable=warning
 
 valgrind:
 	valgrind --leak-check=full ./romano
 
 cpplint:
-	cpplint romanos.cpp
+	cpplint $(IDIR)/romano.hpp romano.cpp teste_romano.cpp
