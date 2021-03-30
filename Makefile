@@ -1,17 +1,19 @@
 IDIR =./include
+EDIR =./src
 CC=g++
-CFLAGS=-I$(IDIR) 
+CFLAGS=-g -I$(IDIR) 
 
 ODIR=obj
 
 _DEPS = romano.hpp
+_SOURCES = testa_romano
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = romano.o testa_romano.o 
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
-$(ODIR)/%.o: %.cpp $(DEPS)
+$(ODIR)/%.o: src/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 romano: $(OBJ)
@@ -24,10 +26,10 @@ exec:
 	./romano 
 
 cppcheck:
-	cppcheck $(IDIR)/romano.hpp romano.cpp testa_romano.cpp --enable=warning
+	cppcheck $(IDIR)/romano.hpp $(EDIR)/romano.cpp $(EDIR)/testa_romano.cpp --enable=warning
 
 valgrind:
 	valgrind --leak-check=full ./romano
 
 cpplint:
-	cpplint $(IDIR)/romano.hpp romano.cpp testa_romano.cpp
+	cpplint $(IDIR)/romano.hpp $(EDIR)/romano.cpp $(EDIR)/testa_romano.cpp
