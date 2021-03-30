@@ -22,7 +22,10 @@ TEST_CASE("Se é um numero maior que 1 e válido", "[convert_number]") {
 
 TEST_CASE("Se tem um número menor na frente do maior", "[convert_number]") {
     REQUIRE(convert_number("IV") == 4);
-    REQUIRE(convert_number("IX") == 9);
+    REQUIRE(convert_number("IC") == 99);
+    REQUIRE(convert_number("XM") == 990);
+    REQUIRE(convert_number("XL") == 40);
+    REQUIRE(convert_number("DM") == 500);
 };
 
 TEST_CASE("Se é letra minuscula", "[convert_number]") {
@@ -33,14 +36,12 @@ TEST_CASE("Se é letra minuscula", "[convert_number]") {
     REQUIRE(convert_number("xxL") == -1);
 };
 
-// TEST_CASE("Se todas as letras estão dentro da sintaxe romana", "[convert_number]") {
-//     REQUIRE(convert_number("jjj") == -1);
-
-// };
-
-// TEST_CASE("Se tudo é letra", "[convert_number]") {
-//     REQUIRE(convert_number("jjj") == -1);
-
-// };
+TEST_CASE("Se algum é numero", "[convert_number]") {
+    REQUIRE(convert_number("X1X") == -1);
+    REQUIRE(convert_number("123") == -1);
+    REQUIRE(convert_number("C00") == -1);
+    REQUIRE(convert_number("XX9") == -1);
+    REQUIRE(convert_number("L98") == -1);
+};
 
 

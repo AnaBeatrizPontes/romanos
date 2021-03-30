@@ -16,7 +16,11 @@ int convert_number(std::string STRING_ROMANA_) {
     int VAL = 0;    
 
     for (AUX = 0; AUX <= STRING_ROMANA_.length(); AUX++) {
-        if (islower(STRING_ROMANA_[AUX]))
+        if ( islower(STRING_ROMANA_[AUX]) )
+        {
+            return -1;
+        }
+        else if ( isdigit(STRING_ROMANA_[AUX]) )
         {
             return -1;
         }
