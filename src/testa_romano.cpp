@@ -61,15 +61,6 @@ TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
 };
 
 //  Caso de teste 7
-// TEST_CASE("Dois numeros menores na frente", "[convert_numeber]") {
-//     REQUIRE(convert_number("IIV") == -1);
-//     REQUIRE(convert_number("XXL") == -1);
-//     REQUIRE(convert_number("XXC") == -1);
-//     REQUIRE(convert_number("CCD") == -1);
-//     REQUIRE(convert_number("XDM") == -1);
-// };
-
-//  Caso de teste 8
 TEST_CASE("Um menor na frente e depois de um maior", "[convert_number]") {
     REQUIRE(convert_number("IXI") == -1);
     REQUIRE(convert_number("VXV") == -1);
@@ -77,7 +68,3 @@ TEST_CASE("Um menor na frente e depois de um maior", "[convert_number]") {
     REQUIRE(convert_number("CDC") == -1);
     REQUIRE(convert_number("DMD") == -1);
 };
-
-
-
-

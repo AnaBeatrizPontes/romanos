@@ -3,10 +3,9 @@
 //  Inclui o arquivo de cabeçalho do projeto
 #include "../include/romano.hpp"
 
-//  Função que converte os números de romano para arábico 
+//  Função que converte os números de romano para arábico
 //  e faz todos os testes necessários
 int convert_number(std::string STRING_ROMANA_) {
-
     //  Declaração de um vetor com números arabicos
     int ARABIC_NUMBER_[8] = { 0, 1, 5, 10, 50, 100, 500, 1000 };
     //  Declaração de um vetor com numeros romanos
@@ -26,7 +25,7 @@ int convert_number(std::string STRING_ROMANA_) {
         // Verifica se a string tem alguma letra minuscula
         if ( islower(STRING_ROMANA_[AUX]) ) {
             return -1;
-        //  Verifica se a string tem algum digito 
+        //  Verifica se a string tem algum digito
         } else if ( isdigit(STRING_ROMANA_[AUX]) ) {
             return -1;
         //  Verifica se o tomamanho da string é menor ou igual a 30
@@ -39,13 +38,14 @@ int convert_number(std::string STRING_ROMANA_) {
                     return ARABIC_NUMBER_[VAL];
                 }
             }
-        //  Faz a conversão do numero romano para arabico 
+        //  Faz a conversão do numero romano para arabico
         } else {
             LETTER = STRING_ROMANA_[AUX];
             for ( CONT = 0; CONT <= 7; CONT++ ) {
-                //  Verifica a qual numero romano o caracter é igual 
+                //  Verifica a qual numero romano o caracter é igual
                 if ( LETTER == ROMAN_STRING_[CONT] ) {
-                    //  Verifica se existe um numero menor na frente e depois de um maior
+                    //  Verifica se existe um numero menor
+                    //  na frente e depois de um maior
                     if ( CONT >= 1 && STRING_ROMANA_.length() >= 2 ) {
                         if ( ((STRING_ROMANA_[AUX - 1] ==
                             STRING_ROMANA_[AUX + 1]) &&
@@ -56,9 +56,9 @@ int convert_number(std::string STRING_ROMANA_) {
                     }
                     //  Faz a soma do numero já convertido
                     SUM = SUM + ARABIC_NUMBER_[CONT];
-                    // Verifica se há subtração no numero 
+                    // Verifica se há subtração no numero
                     if ( PREV < (ARABIC_NUMBER_[CONT]) ) {
-                        //  Se sim faz a subtração no total 
+                        //  Se sim faz a subtração no total
                         SUM = SUM - PREV * 2;
                         PREV = ARABIC_NUMBER_[CONT];
                     }
@@ -69,7 +69,7 @@ int convert_number(std::string STRING_ROMANA_) {
     // Verifica se o número é menor ou igual a 3000
     if (SUM > 3000) {
         return -1;
-    // Retorna o numero convertido 
+    // Retorna o numero convertido
     } else {
         return SUM;
     }
