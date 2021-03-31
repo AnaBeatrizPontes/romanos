@@ -14,6 +14,8 @@ int convert_number(std::string STRING_ROMANA_) {
     int NUM = 0;
     char LETTER = ' ';
     int VAL = 0;
+    char ANT_1 = ' ';
+    char ANT_2 = ' ';
 
     for (AUX = 0; AUX < STRING_ROMANA_.length(); AUX++) {
         if ( islower(STRING_ROMANA_[AUX]) ) {
@@ -32,6 +34,56 @@ int convert_number(std::string STRING_ROMANA_) {
             LETTER = STRING_ROMANA_[AUX];
             for ( CONT = 0; CONT <= 7; CONT++ ) {
                 if ( LETTER == ROMAN_STRING_[CONT] ) {
+                    if ( CONT >= 1 && STRING_ROMANA_.length() >= 2 )
+                    {
+                        if ( ((STRING_ROMANA_[AUX - 1] == STRING_ROMANA_[AUX + 1]) && (STRING_ROMANA_[AUX] != STRING_ROMANA_[AUX - 1] && STRING_ROMANA_[AUX] != STRING_ROMANA_[AUX + 1])) )
+                        {
+                                return -1;
+                        } 
+                    }
+                    else if (CONT >= 2)
+                    {
+                        switch (LETTER) {
+                            case 'V':
+                                if ( (STRING_ROMANA_[CONT - 1] && STRING_ROMANA_[CONT - 2]) == ('I') )
+                                {
+                                    return -1;
+                                }
+                                break;
+                            case 'X':
+                                if ( (STRING_ROMANA_[CONT - 1] && STRING_ROMANA_[CONT - 2]) == ('I' || 'V') )
+                                {
+                                    return -1;
+                                }
+                                break;
+                            case 'L':
+                                if ((STRING_ROMANA_[CONT - 1] && STRING_ROMANA_[CONT - 2]) == ('I' || 'V' || 'X'))
+                                {
+                                    return -1;
+                                }
+                                break;
+                            case 'C':
+                                if ((STRING_ROMANA_[CONT - 1] && STRING_ROMANA_[CONT - 2]) == ('I' || 'V' || 'X' || 'L'))
+                                {
+                                    return -1;
+                                }
+                                break;
+                            case 'D':
+                                if ((STRING_ROMANA_[CONT - 1] && STRING_ROMANA_[CONT - 2]) == ('I' || 'V' || 'X' || 'L' || 'C'))
+                                {
+                                    return -1;
+                                }
+                                break;
+                            case 'M':
+                                if ((STRING_ROMANA_[CONT - 1] && STRING_ROMANA_[CONT - 2]) == ('I' || 'V' || 'X' || 'L' || 'C' || 'D'))
+                                {
+                                    return -1;
+                                }
+                                break;
+                            default:
+                                break;
+                            }   
+                    }
                     SUM = SUM + ARABIC_NUMBER_[CONT];
                     if ( PREV < (ARABIC_NUMBER_[CONT]) ) {
                         SUM = SUM - PREV * 2;

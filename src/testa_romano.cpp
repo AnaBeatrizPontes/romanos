@@ -13,7 +13,7 @@ TEST_CASE("Se é um numero válido", "[convert_number]") {
     REQUIRE(convert_number("M") == 1000);
 };
 
-TEST_CASE("Se é um numero maior que 1 e válido", "[convert_number]") {
+TEST_CASE("Se é um número maior que 1 caractere e válido", "[convert_number]") {
     REQUIRE(convert_number("III") == 3);
     REQUIRE(convert_number("XXX") == 30);
     REQUIRE(convert_number("MMM") == 3000);
@@ -29,7 +29,7 @@ TEST_CASE("Se tem um número menor na frente do maior", "[convert_number]") {
     REQUIRE(convert_number("DM") == 500);
 };
 
-TEST_CASE("Se é letra minuscula", "[convert_number]") {
+TEST_CASE("Se as letras são válidas", "[convert_number]") {
     REQUIRE(convert_number("jjj") == -1);
     REQUIRE(convert_number("XXx") == -1);
     REQUIRE(convert_number("balinha") == -1);
@@ -53,16 +53,7 @@ TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
     REQUIRE(convert_number("MMMMCMXCV") == -1);
 };
 
-// TEST_CASE("Se o tamanho da string é maior que 30", "[convert_number]") {
-//     REQUIRE(convert_number("MMCCCXXIII") == -1);
-//     REQUIRE(convert_number("MMMMCDXLIV") == -1);
-//     REQUIRE(convert_number("MMMCCCXXXIII") == -1);
-//     REQUIRE(convert_number("MMCCCXLVIII") == -1);
-//     REQUIRE(convert_number("MMMMCCCLXIX") == -1);
-// };
-
-
-// TEST_CASE("Dois numeros menores na frente", "[convert_numeber]") {
+// TEST_CASE("Dois numeros menores na frente de um maior", "[convert_numeber]") {
 //     REQUIRE(convert_number("IIV") == -1);
 //     REQUIRE(convert_number("XXL") == -1);
 //     REQUIRE(convert_number("XXC") == -1);
@@ -70,9 +61,13 @@ TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
 //     REQUIRE(convert_number("XDM") == -1);
 // };
 
-// TEST_CASE("Um menor na frente e depois de um maior", "[convert_number]") {
-//         REQUIRE(convert_number("IXI") == -1);
-// };
+TEST_CASE("Um menor na frente e depois de um maior", "[convert_number]") {
+    REQUIRE(convert_number("IXI") == -1);
+    REQUIRE(convert_number("VXV") == -1);
+    REQUIRE(convert_number("CMC") == -1);
+    REQUIRE(convert_number("CDC") == -1);
+    REQUIRE(convert_number("DMD") == -1);
+};
 
 
 
