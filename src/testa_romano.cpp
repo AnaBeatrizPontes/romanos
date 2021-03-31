@@ -1,8 +1,10 @@
 //  Copyright [2021] <Ana Beatriz>
 #define CATCH_CONFIG_MAIN
 
+//  Inclui o arquivo de cabeçalho do projeto
 #include "../include/romano.hpp"
 
+//  Caso de teste 1
 TEST_CASE("Se é um numero válido", "[convert_number]") {
     REQUIRE(convert_number("I") == 1);
     REQUIRE(convert_number("V") == 5);
@@ -13,6 +15,7 @@ TEST_CASE("Se é um numero válido", "[convert_number]") {
     REQUIRE(convert_number("M") == 1000);
 };
 
+//  Caso de teste 2
 TEST_CASE("Se é um número maior que 1 caractere e válido", "[convert_number]") {
     REQUIRE(convert_number("III") == 3);
     REQUIRE(convert_number("XXX") == 30);
@@ -21,6 +24,7 @@ TEST_CASE("Se é um número maior que 1 caractere e válido", "[convert_number]"
     REQUIRE(convert_number("CCC") == 300);
 };
 
+//  Caso de teste 3
 TEST_CASE("Se tem um número menor na frente do maior", "[convert_number]") {
     REQUIRE(convert_number("IV") == 4);
     REQUIRE(convert_number("IC") == 99);
@@ -29,6 +33,7 @@ TEST_CASE("Se tem um número menor na frente do maior", "[convert_number]") {
     REQUIRE(convert_number("DM") == 500);
 };
 
+//  Caso de teste 4
 TEST_CASE("Se as letras são válidas", "[convert_number]") {
     REQUIRE(convert_number("jjj") == -1);
     REQUIRE(convert_number("XXx") == -1);
@@ -37,6 +42,7 @@ TEST_CASE("Se as letras são válidas", "[convert_number]") {
     REQUIRE(convert_number("xxL") == -1);
 };
 
+//  Caso de teste 5
 TEST_CASE("Se algum é numero", "[convert_number]") {
     REQUIRE(convert_number("X1X") == -1);
     REQUIRE(convert_number("123") == -1);
@@ -45,6 +51,7 @@ TEST_CASE("Se algum é numero", "[convert_number]") {
     REQUIRE(convert_number("L98") == -1);
 };
 
+//  Caso de teste 6
 TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
     REQUIRE(convert_number("MMMM") == -1);
     REQUIRE(convert_number("MMMD") == -1);
@@ -53,7 +60,8 @@ TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
     REQUIRE(convert_number("MMMMCMXCV") == -1);
 };
 
-// TEST_CASE("Dois numeros menores na frente de um maior", "[convert_numeber]") {
+//  Caso de teste 7
+// TEST_CASE("Dois numeros menores na frente", "[convert_numeber]") {
 //     REQUIRE(convert_number("IIV") == -1);
 //     REQUIRE(convert_number("XXL") == -1);
 //     REQUIRE(convert_number("XXC") == -1);
@@ -61,6 +69,7 @@ TEST_CASE("Se é um número maior que 3000", "[convert_number]") {
 //     REQUIRE(convert_number("XDM") == -1);
 // };
 
+//  Caso de teste 8
 TEST_CASE("Um menor na frente e depois de um maior", "[convert_number]") {
     REQUIRE(convert_number("IXI") == -1);
     REQUIRE(convert_number("VXV") == -1);
